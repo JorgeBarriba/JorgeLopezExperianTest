@@ -22,7 +22,8 @@ public class LoginTest{
 
     @Before
     public void launchBrowser() throws InterruptedException {
-        String driverPath = "/Users/Jorsh/Downloads/PruebasSelenium/chromedriver3";
+        //String driverPath = "/Users/Jorsh/Downloads/PruebasSelenium/chromedriver3";
+        String driverPath = "src/WebDriver/chromedriver3";
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
         driver.get(baseUrl);
