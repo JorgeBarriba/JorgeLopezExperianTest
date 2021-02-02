@@ -65,6 +65,7 @@ public class LoginTest{
             loginPage.AddMultipleTask("Automated Task "+n);
             n++;
         }
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         Assert.assertEquals(10,loginPage.validateMultipleTask());
 
     }
