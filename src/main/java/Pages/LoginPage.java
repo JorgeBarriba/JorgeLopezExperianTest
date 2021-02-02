@@ -1,15 +1,13 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.FieldDecorator;
 
-import java.io.ObjectInputStream;
+import java.util.List;
 
 public class LoginPage {
     private WebDriver driver;
@@ -24,12 +22,14 @@ public class LoginPage {
     @FindBy(id="email") private WebElement email_text; //jorgebarriba@gmail.com
     @FindBy(id="password") private WebElement password_text; //Challenge02
     @FindBy(xpath="//*[@id='login_form']/button") private WebElement session_button;
-    @FindBy(xpath="//*[@id='top_bar_inner']/div[2]/button[5]/img") private WebElement profile_button;
     @FindBy(how= How.CLASS_NAME, using = "plus_add_button") private WebElement plus_add_button;
     @FindBy(how= How.CLASS_NAME, using = "public-DraftStyleDefault-block") private WebElement task_text;
+    @FindBy(className="user_avatar") private WebElement profile_button;
     @FindBy(xpath = "/html/body/main/div/div[2]/div[1]/div[2]/div/span") private WebElement error_login_message;
-    @FindBy(how= How.LINK_TEXT, using = "Automated Single Task") private WebElement single_task;
-    @FindBy(how= How.LINK_TEXT, using = "Automated Task 10") private WebElement multiple_task;
+    @FindBy(className="markdown_content") private WebElement single_task;
+    @FindBy(className="markdown_content") private List <WebElement> multiple_task;
+
+
 
     // Funciones de login y tasks
     public void Login(String user, String pass){
@@ -67,7 +67,8 @@ public class LoginPage {
     public String validateSingleTask(){
         return single_task.getText();
     }
-    public String validateMultipleTask(){
-        return multiple_task.getText();
+    public int validateMultipleTask(){
+        System.out.println(multiple_task.size());
+        return multiple_task.size();
     }
 }

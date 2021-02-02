@@ -3,14 +3,15 @@ package Tests;
 import Pages.BasePage;
 import Pages.LoginPage;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.OrderWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,26 +32,26 @@ public class LoginTest{
 
 
 
-    @Test
+    @org.junit.Test
     public void SuccessfulLogin(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.Login("jorgebarriba@gmail.com", "Challenge02");
-        Assert.assertTrue(loginPage.validateLogin());
+        org.junit.Assert.assertTrue(loginPage.validateLogin());
     }
 
-    @Test
+    @org.junit.Test
     public void UnsuccessfulLogin(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.Login("failed@gmail.com", "nopass");
-        Assert.assertEquals("Email o contraseña incorrectos",loginPage.validateFailedLogin());
+        org.junit.Assert.assertEquals("Email o contraseña incorrectos",loginPage.validateFailedLogin());
     }
 
-     @Test
+    @org.junit.Test
     public void CreateNewTask(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.Login("jorgebarriba@gmail.com", "Challenge02");
         loginPage.AddTask("Automated Single Task");
-        Assert.assertEquals("Automated Single Task",loginPage.validateSingleTask());
+        org.junit.Assert.assertEquals("Automated Single Task",loginPage.validateSingleTask());
     }
 
     @Test
@@ -64,15 +65,14 @@ public class LoginTest{
             loginPage.AddMultipleTask("Automated Task "+n);
             n++;
         }
-        Assert.assertEquals("Automated Task 10",loginPage.validateMultipleTask());
+        Assert.assertEquals(10,loginPage.validateMultipleTask());
 
     }
 
     @After
     public void close() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(100);
         driver.close();
-        driver.wait(10);
     }
 
 }
