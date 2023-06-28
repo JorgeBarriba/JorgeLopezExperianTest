@@ -1,18 +1,20 @@
-# JorgeChallenge
-Repository test
+# Jorge Lopez ExperianTest
+File Repository 
 
-Automated flows 
-○ Successful login. Define a test case that performs a successful login, using credentials stored preferably in an external file file
-○ Unsuccessful login. Define multiple negative scenarios for login.
-○ Create a new task. Create a new task and validate it was created correctly.
-○ Create 10 new tasks. Create 10 new tasks and validate they were created
-correctly. Task Names should be dynamic.
+LoginTaxCredit.java will be the file to run the test, inside you will find 3 tags;
+@Before to launch the web driver, chromedriver
+@Test to Execute the Tasks, Enter information, Selection of No answers, and Form Submit
+    Inside Test you will also see the Assert validation for the final URL
+@After to close the web driver, chromedriver
 
-Steps to run the program 
-Clone the project JorgeChallenge to your local machine
-https://github.com/JorgeBarriba/JorgeChallenge.git
-Make sure all java files were downlodead for pages and tests. 
+LoginPage.java will be the file that will have the definition of the locators and the methods 
+to send the data to the different pages. 
+
+Steps to run the program - 
+Clone the project JorgeLopezExperianTest to your local machine
+https://github.com/JorgeBarriba/JorgeLopezExperianTest.git
+Make sure all java files were downloaded for pages and tests. 
 Open the project in your preferred IDE, recommended Intellij.
 Make sure you have installed all the libraries and dependencies. 
-Go to LoginTest and Build and Run this file /JorgeChallenge/src/test/java/Tests/LoginTest.java. 
-All 4 test should pass. 
+Go to LoginTaxCredit and Build and Run this file /JorgeLopezExperianTest/src/test/java/Tests/LoginTaxCredit.java - 
+ExperianEmployeeServices Test should pass.
